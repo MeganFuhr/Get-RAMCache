@@ -66,3 +66,24 @@ try
 }
 catch {return}
 }
+
+#Get devices from each device collection
+function Get-Devices {
+	[CmdletBinding()]
+	param(
+	
+		[Parameter(Mandatory=$true,
+		ValueFromPipeline=$True)]
+		[object]$Collection
+
+	)
+	begin {
+	[string]$Site = Get-SiteName | Select SiteName -ExpandProperty SiteName
+	
+	
+foreach ($item in $collection) {	
+	[string]$z=$item.CollectionName
+	'Mcli-Get Device -p CollectionName=$z,SiteName=$site -f DeviceName,CollectionName' | ToObject
+		}
+	}
+}
