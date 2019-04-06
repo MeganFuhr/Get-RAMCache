@@ -1,4 +1,6 @@
 #Convert PVS output to object
+#Author Remko Weijnen
+#http://www.remkoweijnen.nl/blog/2012/02/29/convert-mcli-output-into-powershell-objects/
 function ToObject {
     param(
      [Parameter(
